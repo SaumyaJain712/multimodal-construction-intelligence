@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ClipboardList, ImageOff, Sparkles } from "lucide-react";
+import { ClipboardList, ImageOff, Loader2, Sparkles } from "lucide-react";
 import api, { errorMessage, formatINR } from "../api.js";
 import { ModuleLayout, Page } from "./common.jsx";
 
@@ -18,12 +18,19 @@ const MATERIAL_ROWS = [
 
 function Visualization({ prompt }) {
   const [failed, setFailed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   if (!prompt) return null;
   const src = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=768&height=512&nologo=true`;
   return (
     <div className="viz-card">
       {!failed ? (
-        <img src={src} alt={prompt} loading="lazy" onError={() => setFailed(true)} />
+        <>
+          {!loaded && (
+            <div className="viz-loading"><Loader2 className="spin" size={22} /> Generating concept render…</div>
+          )}
+          <img src={src} alt={prompt} onLoad={() => setLoaded(true)} onError={() => setFailed(true)}
+            style={loaded ? undefined : { display: "none" }} />
+        </>
       ) : (
         <div className="empty-state" style={{ padding: 24 }}><ImageOff size={28} /><p>Rendering unavailable</p></div>
       )}

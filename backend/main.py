@@ -493,7 +493,10 @@ async def validation_error_handler(request: Request, exc: RequestValidationError
     """Report bad user input as HTTP 400 with a readable message."""
     problems = []
     for err in exc.errors():
-        field = ".".join(str(p) for p in err.get("loc", []) if p not in ("body", "query", "form"))
+        loc = list(err.get("loc", []))
+        if loc and loc[0] in ("body", "query", "path", "header"):
+            loc = loc[1:]
+        field = ".".join(str(p) for p in loc)
         problems.append(f"{field or 'request'}: {err.get('msg', 'invalid value')}")
     return JSONResponse(status_code=400, content={"detail": "Invalid input — " + "; ".join(problems)})
 

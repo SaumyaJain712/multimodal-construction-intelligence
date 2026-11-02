@@ -1,6 +1,6 @@
 # ConstructAI — Multimodal Construction Intelligence Platform
 
-**Live demo:** __LIVE_URL__
+**Live demo:** https://multimodal-construction-intelligenc-phi.vercel.app
 **GitHub:** https://github.com/SaumyaJain712/multimodal-construction-intelligence
 
 ConstructAI is an AI-powered web platform for the Indian construction industry. Eight tools — safety
@@ -130,7 +130,7 @@ with an extra `"error"` field. Invalid user input returns HTTP 400 `{ "detail": 
 
 **Health**
 ```bash
-curl https://<your-app>/api/health
+curl https://multimodal-construction-intelligenc-phi.vercel.app/api/health
 ```
 ```json
 { "status": "ok", "model": "qwen/qwen3.8-27b", "key_configured": true }
@@ -138,7 +138,7 @@ curl https://<your-app>/api/health
 
 **Safety Monitor**
 ```bash
-curl -X POST https://<your-app>/api/safety-monitor \
+curl -X POST https://multimodal-construction-intelligenc-phi.vercel.app/api/safety-monitor \
   -F "text=Workers fixing shuttering at 3rd floor slab edge, no guardrails, one without helmet" \
   -F "image=@site.jpg"
 ```
@@ -151,7 +151,7 @@ curl -X POST https://<your-app>/api/safety-monitor \
 
 **Crack Detection**
 ```bash
-curl -X POST https://<your-app>/api/crack-detection -F "text=2 mm diagonal crack from window corner" -F "image=@crack.jpg"
+curl -X POST https://multimodal-construction-intelligenc-phi.vercel.app/api/crack-detection -F "text=2 mm diagonal crack from window corner" -F "image=@crack.jpg"
 ```
 ```json
 { "crack_type": "Diagonal", "severity": "Moderate", "probable_causes": ["Differential settlement"],
@@ -161,7 +161,7 @@ curl -X POST https://<your-app>/api/crack-detection -F "text=2 mm diagonal crack
 
 **Real Estate Valuation**
 ```bash
-curl -X POST https://<your-app>/api/real-estate-valuation \
+curl -X POST https://multimodal-construction-intelligenc-phi.vercel.app/api/real-estate-valuation \
   -F location="Baner, Pune" -F area=1200 -F property_type=Residential -F building_age=5 -F amenities="Gym, pool"
 ```
 ```json
@@ -172,7 +172,7 @@ curl -X POST https://<your-app>/api/real-estate-valuation \
 
 **Project Planner**
 ```bash
-curl -X POST https://<your-app>/api/project-planner -H "Content-Type: application/json" \
+curl -X POST https://multimodal-construction-intelligenc-phi.vercel.app/api/project-planner -H "Content-Type: application/json" \
   -d '{"description":"G+1 house, 1500 sq ft built-up, RCC frame, Pune"}'
 ```
 ```json
@@ -184,7 +184,7 @@ curl -X POST https://<your-app>/api/project-planner -H "Content-Type: applicatio
 
 **Knowledge Base**
 ```bash
-curl -X POST https://<your-app>/api/knowledge-base -H "Content-Type: application/json" \
+curl -X POST https://multimodal-construction-intelligenc-phi.vercel.app/api/knowledge-base -H "Content-Type: application/json" \
   -d '{"query":"Minimum cover for columns","mode":"standards"}'
 ```
 ```json
@@ -194,7 +194,7 @@ curl -X POST https://<your-app>/api/knowledge-base -H "Content-Type: application
 
 **Chatbot**
 ```bash
-curl -X POST https://<your-app>/api/chatbot -H "Content-Type: application/json" \
+curl -X POST https://multimodal-construction-intelligenc-phi.vercel.app/api/chatbot -H "Content-Type: application/json" \
   -d '{"query":"Which concrete grade for an RCC slab?","history":[]}'
 ```
 ```json
@@ -204,7 +204,7 @@ curl -X POST https://<your-app>/api/chatbot -H "Content-Type: application/json" 
 
 **Daily Site Assistant**
 ```bash
-curl -X POST https://<your-app>/api/site-assistant -H "Content-Type: application/json" \
+curl -X POST https://multimodal-construction-intelligenc-phi.vercel.app/api/site-assistant -H "Content-Type: application/json" \
   -d '{"activity":"First floor slab casting","labour_count":18,"site_condition":"Muddy access road"}'
 ```
 ```json
@@ -214,7 +214,7 @@ curl -X POST https://<your-app>/api/site-assistant -H "Content-Type: application
 
 **Weather Advisor**
 ```bash
-curl -X POST https://<your-app>/api/weather-advisor -H "Content-Type: application/json" \
+curl -X POST https://multimodal-construction-intelligenc-phi.vercel.app/api/weather-advisor -H "Content-Type: application/json" \
   -d '{"activity":"Roof slab concreting","weather":"Rainy","location":"Mumbai"}'
 ```
 ```json
@@ -283,6 +283,6 @@ vercel --prod --yes
 Then verify:
 
 ```bash
-curl https://<your-app>/api/health        # key_configured: true
-curl -I https://<your-app>/safety         # 200 (SPA fallback)
+curl https://multimodal-construction-intelligenc-phi.vercel.app/api/health        # key_configured: true
+curl -I https://multimodal-construction-intelligenc-phi.vercel.app/safety         # 200 (SPA fallback)
 ```

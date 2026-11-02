@@ -140,13 +140,14 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 tr.total td { font-weight: 800; border-top: 2px solid var(--text); }
 
 .timeline { list-style: none; padding: 0; margin: 0 0 18px; border-left: 3px solid var(--orange); }
-.timeline li { position: relative; padding: 0 0 16px 18px; }
-.timeline li::before { content: ""; position: absolute; left: -8px; top: 3px; width: 13px; height: 13px; border-radius: 50%; background: #fff; border: 3px solid var(--orange); }
+.timeline > li { position: relative; padding: 0 0 16px 18px; }
+.timeline > li::before { content: ""; position: absolute; left: -8px; top: 3px; width: 13px; height: 13px; border-radius: 50%; background: #fff; border: 3px solid var(--orange); }
 .timeline .phase { font-weight: 700; }
 .timeline .weeks { color: var(--muted); font-size: 0.82rem; margin-left: 6px; }
 .timeline ul { margin: 6px 0 0; padding-left: 18px; font-size: 0.88rem; color: #374151; }
 
 .viz-card { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); background: #f9fafb; }
+.viz-loading { display: flex; align-items: center; justify-content: center; gap: 10px; height: 200px; color: var(--muted); font-size: 0.88rem; }
 .viz-card img { width: 100%; display: block; min-height: 120px; background: #eee; }
 .viz-prompt { padding: 12px 14px; font-size: 0.85rem; color: #374151; font-style: italic; }
 
